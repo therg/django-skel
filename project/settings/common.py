@@ -4,8 +4,6 @@
 from datetime import timedelta
 from os.path import abspath, basename, dirname, join, normpath
 
-from djcelery import setup_loader
-
 
 ########## PATH CONFIGURATION
 # Absolute filesystem path to the Django project directory:
@@ -194,12 +192,6 @@ DJANGO_APPS = (
 THIRD_PARTY_APPS = (
     # Database migration helpers:
     'south',
-
-    # AJAX helpers:
-    'dajaxice',
-
-    # Asynchronous task queue:
-    'djcelery',
 )
 
 LOCAL_APPS = (
@@ -231,14 +223,6 @@ LOGGING = {
 }
 ########## END LOGGING CONFIGURATION
 
-
-########## CELERY CONFIGURATION
-# See: http://celery.readthedocs.org/en/latest/configuration.html#celery-task-result-expires
-CELERY_TASK_RESULT_EXPIRES = timedelta(minutes=30)
-
-# See: http://ask.github.com/django-celery/
-setup_loader()
-########## END CELERY CONFIGURATION
 
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
